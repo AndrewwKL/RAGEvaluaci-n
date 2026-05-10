@@ -38,7 +38,7 @@ CHUNK_SIZE       = 500             # Caracteres por fragmento
 CHUNK_OVERLAP    = 50              # Solapamiento entre fragmentos
 K_RETRIEVED      = 5              # Fragmentos recuperados por consulta
 EMBEDDING_MODEL  = "gemini-embedding-001"
-LLM_MODEL        = "gemini-2.0-flash"
+LLM_MODEL        = "gemini-2.5-flash"
 PERSIST_DIR      = "./chroma_db_taller"
 
 print("\n=== PARÁMETROS DEL PIPELINE ===")
@@ -258,8 +258,8 @@ registros = []
 print(f"\n  Ejecutando RAG para {len(muestras_evaluacion)} preguntas...\n")
 for i, m in enumerate(muestras_evaluacion):
     if i > 0:
-        print("  ⏳ Esperando 15s para no exceder el rate limit de la API gratuita...")
-        time.sleep(15)
+        print("  ⏳ Esperando 40s para no exceder el rate limit de la API gratuita...")
+        time.sleep(40)
     resultado = rag_pipeline(m["user_input"], verbose=False)
     registros.append({
         "user_input":         m["user_input"],
